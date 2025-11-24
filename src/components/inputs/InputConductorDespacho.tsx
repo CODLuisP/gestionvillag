@@ -22,7 +22,7 @@ export default function AutocompleteConductor({
   useEffect(() => {
     const fetchAllConductores = async () => {
       try {
-        const res = await fetch("https://villa.velsat.pe:8443/api/Caja/conductoresDisp/etudvrb");
+        const res = await fetch("https://villa.velsat.pe:8443/api/Caja/conductoresDisp/etudvrg");
         const data: Conductor[] = await res.json();
         setAllConductores(data);
       } catch (error) {

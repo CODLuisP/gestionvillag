@@ -106,7 +106,7 @@ export default function ReporteVueltasPage() {
               <SelectValue placeholder="Seleccione ruta" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="25">1384-choriilos-vmt</SelectItem>
+              <SelectItem value="67">1485 - Chorrillos - Jose Gálvez</SelectItem>
             </SelectContent>
           </Select>
         </div>

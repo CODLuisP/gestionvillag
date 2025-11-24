@@ -76,7 +76,7 @@ export default function Page() {
       setLoading(true);
       setError(null);
       const response = await fetch(
-        "https://villa.velsat.pe:8443/api/Caja/conductores/etudvrb"
+        "https://villa.velsat.pe:8443/api/Caja/conductores/etudvrg"
       );
 
       if (!response.ok) {

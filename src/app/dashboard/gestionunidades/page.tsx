@@ -119,7 +119,7 @@ export default function Page() {
 
   const fetchUnidades = async () => {
     const res = await fetch(
-      "https://villa.velsat.pe:8443/api/Caja/carros/etudvrb"
+      "https://villa.velsat.pe:8443/api/Caja/carros/etudvrg"
     );
     const data = await res.json();
     setUnidades(

@@ -82,7 +82,7 @@ export default function ModalDespacho({
     const fetchRoutes = async () => {
       try {
         const response = await axios.get(
-          "https://villa.velsat.pe:8443/api/Caja/Rutas/etudvrb"
+          "https://villa.velsat.pe:8443/api/Caja/Rutas/etudvrg"
         );
         const data = response.data as { nombre: string; codigo: string }[];
         const formatted = data.map((ruta) => ({

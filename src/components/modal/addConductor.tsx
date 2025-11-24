@@ -149,7 +149,7 @@ export default function ConductorDialog({
       };
 
       const response = await fetch(
-        `https://villa.velsat.pe:8443/api/Caja/NuevoConductor/etudvrb`,
+        `https://villa.velsat.pe:8443/api/Caja/NuevoConductor/etudvrg`,
         {
           method: "POST",
           headers: {

@@ -84,7 +84,7 @@ export default function DispatchManagement() {
     setLoadingUnits(true);
     try {
       const response = await fetch(
-        "https://villa.velsat.pe:8443/api/Caja/unidadesDisp/etudvrb"
+        "https://villa.velsat.pe:8443/api/Caja/unidadesDisp/etudvrg"
       );
       const data: Unit[] = await response.json();
       setAvailableUnits(data);
@@ -105,7 +105,7 @@ export default function DispatchManagement() {
     const fetchRoutes = async () => {
       try {
         const response = await axios.get<ApiRoute[]>(
-          "https://villa.velsat.pe:8443/api/Caja/Rutas/etudvrb"
+          "https://villa.velsat.pe:8443/api/Caja/Rutas/etudvrg"
         );
         const data = response.data;
         const formatted: Route[] = data.map((ruta: ApiRoute) => ({

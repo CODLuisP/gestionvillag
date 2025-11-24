@@ -5,31 +5,47 @@ import html2canvas from "html2canvas";
 import * as XLSX from "xlsx";
 import { FileSpreadsheet, FileText, Search, X } from "lucide-react";
 
-const headersRuta25 = [
+const headersRuta67 = [
   "Unidad",
   "Hora Inicio",
   "Hora Registro",
-  "PACÍFICO",
-  "GALENA",
-  "CVA. ESPERANZA I",
-  "PARADERO 15",
-  "CVA. ESPERANZA",
-  "CT",
-  "FERRETERÍA",
-  "MIYASHIRO",
+  "JOSE GALVEZ IDA",
+  "TOTTUS IDA",
+  "CVA. ESPERANZA IDA",
+  "SAN JUAN IDA",
+  "CIUDAD IDA",
+  "CT IDA",
+  "AMERICA IDA",
+  "TUPAC IDA",
+  "AMERICA VUELTA",
+  "CT VUELTA",
+  "CIUDAD VUELTA",
+  "SAN JUAN VUELTA",
+  "CVA. ESPERANZA VUELTA",
+  "TOTTUS VUELTA",
+  "JOSE GALVEZ VUELTA",
+  "PARADERO 01 VUELTA",
   "Conductor",
   "Total",
 ];
 
-const controlesRuta25 = [
-  "PACÍFICO",
-  "GALENA",
-  "CVA. ESPERANZA I",
-  "PARADERO 15",
-  "CVA. ESPERANZA",
-  "CT",
-  "FERRETERÍA",
-  "MIYASHIRO",
+const controlesRuta67 = [
+  "JOSE GALVEZ IDA",
+  "TOTTUS IDA",
+  "CVA. ESPERANZA IDA",
+  "SAN JUAN IDA",
+  "CIUDAD IDA",
+  "CT IDA",
+  "AMERICA IDA",
+  "TUPAC IDA",
+  "AMERICA VUELTA",
+  "CT VUELTA",
+  "CIUDAD VUELTA",
+  "SAN JUAN VUELTA",
+  "CVA. ESPERANZA VUELTA",
+  "TOTTUS VUELTA",
+  "JOSE GALVEZ VUELTA",
+  "PARADERO 01 VUELTA",
 ];
 
 interface Control {
@@ -49,7 +65,7 @@ interface Despacho {
 }
 
 export default function Page() {
-  const [selectedRoute] = useState("25");
+  const [selectedRoute] = useState("67");
 
   const getTodayLocal = () => {
     const now = new Date();
@@ -66,7 +82,9 @@ export default function Page() {
   const [rows, setRows] = useState<(string | string[])[][]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const subdividedColumns = [3, 4, 5, 6, 7, 8, 9, 10];
+  const subdividedColumns = [
+    3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+  ];
 
   // Función para verificar si una fila tiene al menos una hora en los controles
   const hasControlTimes = (row: (string | string[])[]) => {
@@ -87,7 +105,7 @@ export default function Page() {
   const exportExcel = () => {
     const headerRow: string[] = [];
 
-    headersRuta25.forEach((header, index) => {
+    headersRuta67.forEach((header, index) => {
       if (subdividedColumns.includes(index)) {
         headerRow.push(`${header} - Estimada`);
         headerRow.push(`${header} - Llegada`);
@@ -193,7 +211,7 @@ export default function Page() {
     setHasSearched(true);
 
     try {
-      const url = `https://villa.velsat.pe:8443/api/Datero/controlEdu/${date}/${selectedRoute}/etudvrb`;
+      const url = `https://villa.velsat.pe:8443/api/Datero/controlEdu/${date}/${selectedRoute}/etudvrg`;
       const response = await fetch(url);
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -210,7 +228,7 @@ export default function Page() {
         const base = [item.deviceid, item.hora_inicio, item.hora_registro];
 
         const controlMap: Record<string, string[]> = {};
-        controlesRuta25.forEach((control) => {
+        controlesRuta67.forEach((control) => {
           controlMap[control.toUpperCase()] = ["", "", ""];
         });
 
@@ -239,7 +257,7 @@ export default function Page() {
           }
         });
 
-        const controlValues = headersRuta25
+        const controlValues = headersRuta67
           .map((header, i) =>
             subdividedColumns.includes(i)
               ? controlMap[header.toUpperCase()]
@@ -291,7 +309,7 @@ export default function Page() {
                 Ruta:
               </label>
               <div className="w-full sm:min-w-[250px] xl:min-w-[230px] border border-gray-300 dark:border-gray-600 rounded px-3 py-2 text-sm bg-gray-100 dark:bg-slate-600 text-gray-700 dark:text-gray-300">
-                1384 - Chorrillos - VMT
+                1485 - Chorrillos - Jose Gálvez
               </div>
             </div>
           </div>
@@ -469,7 +487,7 @@ export default function Page() {
           <table className="min-w-full border text-sm text-center border-collapse">
             <thead>
               <tr className="bg-slate-200">
-                {headersRuta25.map((header, index) => {
+                {headersRuta67.map((header, index) => {
                   if (subdividedColumns.includes(index)) {
                     return (
                       <th

@@ -32,7 +32,7 @@ const data = {
     {
       name: "VELSAT",
       logo: GalleryVerticalEnd,
-      plan: "Usuario: Etudvrb",
+      plan: "Usuario: Etudvrg",
     },
     {
       name: "Acme Corp.",

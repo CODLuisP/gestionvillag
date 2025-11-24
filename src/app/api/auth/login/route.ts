@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 export async function POST(request: Request) {
   const { login, clave } = await request.json();
 
-  const validUser = "etudvrb";
+  const validUser = "etudvrg";
   const validPassword = "123";
 
   if (login === validUser && clave === validPassword) {
