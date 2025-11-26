@@ -57,7 +57,7 @@ export default function ReporteVueltasPage() {
       const response = await fetch(
         `https://villa.velsat.pe:8443/api/Caja/vueltas?fecha=${encodeURIComponent(
           formattedDate
-        )}&ruta=25`
+        )}&ruta=67`
       )
 
       if (!response.ok) {
